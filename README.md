@@ -10,7 +10,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-black?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion)
 
-[Live Demo](#) · [Report a Bug](#) · [Request a Feature](#)
+
 
 </div>
 
@@ -163,7 +163,7 @@ inspiration — please don't republish it as your own identical portfolio.
 ## Contact
 
 **Abhishek Tiwari**
-[GitHub](https://github.com/Abhishek09821) · [LinkedIn](#) · abhishektiwari09821@gmail.com
+[GitHub](https://github.com/Abhishek09821) 
 
 ---
 
