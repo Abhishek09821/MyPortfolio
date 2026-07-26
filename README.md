@@ -1,6 +1,6 @@
 <div align="center">
 
-# ABHISHEK TIWARI // PORTFOLIO
+# ABHISHEK TIWARI --> PORTFOLIO
 
 **A HUD-inspired, agentic-feeling portfolio — built like a system, not a template.**
 
