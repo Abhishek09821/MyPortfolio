@@ -158,7 +158,7 @@ npx vercel
 ## License
 
 This project is personal portfolio source code. Feel free to fork it for
-inspiration — please don't republish it as your own identical portfolio.
+inspiration — please don't republish it as your own identical portfolio and for using these tampelate you can just message me on linkedin.
 
 ## Contact
 
