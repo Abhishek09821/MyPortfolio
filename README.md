@@ -1,10 +1,6 @@
 <div align="center">
 
-# ABHISHEK TIWARI --> <p align="center">
-  <a href="https://knowabhee.netlify.app/">
-    <strong> PORTFOLIO </strong>
-  </a>
-</p>
+# ABHISHEK TIWARI --> <p align="center"> <a href="https://knowabhee.netlify.app/"> <strong> PORTFOLIO </strong> </a> </p>
 
 **A HUD-inspired, agentic-feeling portfolio — built like a system, not a template.**
 
