@@ -100,33 +100,6 @@ src/
     └── utils.ts
 ```
 
-## Getting Started
-
-**Requirements:** Node.js 20+
-
-```bash
-# 1. Clone
-git clone https://github.com/Abhishek09821/<your-repo-name>.git
-cd <your-repo-name>
-
-# 2. Install
-npm install
-
-# 3. Run
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-```bash
-# Production build
-npm run build
-npm run start
-```
-
-> `next/font/google` fetches font files at build time, so `npm run build`
-> needs normal internet access — this works out of the box on Vercel,
-> Netlify, or any standard machine.
 
 ## Editing Content
 
