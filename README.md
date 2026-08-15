@@ -149,11 +149,9 @@ A few things worth doing before you deploy:
 
 ## Deployment
 
-Deploy with [Vercel](https://vercel.com/new) in one click, or:
+Deploy with netlify in one click, or:
+search https://www.netlify.com/
 
-```bash
-npx vercel
-```
 
 ## License
 
