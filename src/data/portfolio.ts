@@ -213,34 +213,83 @@ export const projects = [
 
 export const achievements = [
   {
+    id: "hackathon-winner",
+    title: "🏆 1st Place - Zynk Hackathon 2026",
+    description: "Won first position with Team Omen for building a Low-Hallucination Finance AI in 48 hours at Amity University Gwalior.",
+    date: "April 2026",
+    category: "Hackathon",
+    highlight: true,
+    certificateUrl: "/certificates/hackathon-certificate.pdf",
+  },
+  {
+    id: "palo-alto-cybersecurity",
+    title: "Palo Alto Networks - Cybersecurity Fundamentals",
+    description: "Completed Palo Alto Networks Academy Cybersecurity Fundamentals certification.",
+    date: "December 2025",
+    category: "Certification",
+    certificateUrl: "/certificates/palo-alto-cybersecurity.pdf",
+  },
+  {
+    id: "palo-alto-network",
+    title: "Palo Alto Networks - Network Security Fundamentals",
+    description: "Completed Palo Alto Networks Academy Network Security Fundamentals certification.",
+    date: "December 2025",
+    category: "Certification",
+    certificateUrl: "/certificates/palo-alto-network-security.pdf",
+  },
+  {
+    id: "palo-alto-cloud",
+    title: "Palo Alto Networks - Cloud Security Fundamentals",
+    description: "Completed Palo Alto Networks Academy Cloud Security Fundamentals certification.",
+    date: "December 2025",
+    category: "Certification",
+    certificateUrl: "/certificates/palo-alto-cloud-security.pdf",
+  },
+  {
+    id: "google-gen-ai",
+    title: "Google Cloud - Introduction to Generative AI Studio",
+    description: "Completed Google Cloud course on Generative AI Studio powered by Simplilearn.",
+    date: "October 2025",
+    category: "Certification",
+    certificateUrl: "/certificates/google-gen-ai.png",
+  },
+  {
+    id: "leetcode-100-days",
+    title: "LeetCode 100 Days Badge 2026",
+    description: "Achieved 100+ consecutive days of solving problems on LeetCode in 2026.",
+    date: "2026",
+    category: "Achievement",
+    certificateUrl: "/certificates/leetcode-100-days.png",
+  },
+  {
     id: "ai-builder",
     title: "AI Builder",
     description: "Shipped multiple production AI systems — agentic assistants and an AI financial advisor.",
+    category: "Skill",
   },
   {
     id: "backend-engineer",
     title: "Backend Engineer",
     description: "Designed and hardened APIs across Flask, FastAPI, and Node.js services.",
+    category: "Skill",
   },
   {
     id: "security-minded",
     title: "Security Minded",
     description: "Built an intrusion-detection honeypot and fixed IDOR vulnerabilities in production auth flows.",
+    category: "Skill",
   },
   {
     id: "full-stack-shipper",
     title: "Full-Stack Shipper",
     description: "Takes projects from idea to deployed, end-to-end product — never stops at a prototype.",
-  },
-  {
-    id: "hackathon-builder",
-    title: "Hackathon Builder",
-    description: "Delivered a working forensic call-tracing engine under hackathon time pressure.",
+    category: "Skill",
   },
   {
     id: "open-source",
     title: "Open Source",
     description: "Maintains public repositories and ships in the open on GitHub.",
+    category: "Skill",
   },
 ] as const;
 
