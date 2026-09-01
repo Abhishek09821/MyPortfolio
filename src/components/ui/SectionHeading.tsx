@@ -30,8 +30,8 @@ export function SectionHeading({
         className,
       )}
     >
-      <span className="flex items-center gap-3 font-mono text-xs tracking-[0.3em] text-accent-blue">
-        <span className="h-px w-8 bg-accent-blue/60" aria-hidden />
+      <span className="flex items-center gap-3 font-mono text-xs tracking-[0.3em] text-accent-silver">
+        <span className="h-px w-8 bg-accent-silver/60" aria-hidden />
         {eyebrow}
       </span>
       <h2 className="text-balance text-3xl font-bold tracking-tight text-text sm:text-4xl md:text-5xl">

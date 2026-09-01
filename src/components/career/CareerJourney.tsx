@@ -18,7 +18,7 @@ export function CareerJourney() {
       <div className="relative">
         {/* connecting line */}
         <div
-          className="absolute left-6 top-2 hidden h-[calc(100%-1rem)] w-px bg-gradient-to-b from-accent-blue/60 via-accent-blue/20 to-transparent sm:block"
+          className="absolute left-6 top-2 hidden h-[calc(100%-1rem)] w-px bg-gradient-to-b from-accent-silver/60 via-accent-silver/20 to-transparent sm:block"
           aria-hidden
         />
 
@@ -39,8 +39,8 @@ export function CareerJourney() {
                     className={cn(
                       "flex h-12 w-12 items-center justify-center rounded-full border font-mono text-xs font-semibold",
                       isCurrent
-                        ? "border-accent-green bg-accent-green/10 text-accent-green shadow-[0_0_20px_-4px_rgba(0,255,136,0.6)]"
-                        : "border-accent-blue/50 bg-bg text-accent-blue",
+                        ? "border-white bg-white/10 text-white shadow-[0_0_20px_-4px_rgba(0,255,136,0.6)]"
+                        : "border-accent-silver/50 bg-bg text-accent-silver",
                     )}
                   >
                     {String(item.level).padStart(2, "0")}
@@ -48,19 +48,19 @@ export function CareerJourney() {
                 </div>
 
                 <GlassPanel
-                  accent={isCurrent ? "green" : "blue"}
+                  accent={isCurrent ? "bright" : "silver"}
                   interactive
                   className="flex-1 p-6"
                 >
                   <div className="mb-2 flex flex-wrap items-center gap-3">
-                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent-blue sm:hidden">
+                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-accent-silver sm:hidden">
                       LVL {String(item.level).padStart(2, "0")}
                     </span>
                     <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
                       {item.period}
                     </span>
                     {isCurrent && (
-                      <span className="rounded-full border border-accent-green/40 bg-accent-green/[0.08] px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-accent-green">
+                      <span className="rounded-full border border-white/40 bg-white/[0.08] px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-white">
                         In progress
                       </span>
                     )}

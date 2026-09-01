@@ -3,11 +3,11 @@
 import { HTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-type Accent = "blue" | "green" | "warning" | "muted";
+type Accent = "silver" | "bright" | "warning" | "muted";
 
 const accentBorder: Record<Accent, string> = {
-  blue: "before:border-accent-blue after:border-accent-blue",
-  green: "before:border-accent-green after:border-accent-green",
+  silver: "before:border-accent-silver after:border-accent-silver",
+  bright: "before:border-accent-bright after:border-accent-bright",
   warning: "before:border-warning after:border-warning",
   muted: "before:border-muted after:border-muted",
 };
@@ -27,7 +27,7 @@ interface GlassPanelProps extends HTMLAttributes<HTMLDivElement> {
  */
 export function GlassPanel({
   children,
-  accent = "blue",
+  accent = "silver",
   interactive = false,
   brackets = true,
   className,
@@ -54,8 +54,8 @@ export function GlassPanel({
         aria-hidden
         className={cn(
           "pointer-events-none absolute right-[-1px] top-[-1px] h-3 w-3 border-r border-t opacity-70",
-          accent === "blue" && "border-accent-blue",
-          accent === "green" && "border-accent-green",
+          accent === "silver" && "border-accent-silver",
+          accent === "bright" && "border-accent-bright",
           accent === "warning" && "border-warning",
           accent === "muted" && "border-muted",
         )}
@@ -64,8 +64,8 @@ export function GlassPanel({
         aria-hidden
         className={cn(
           "pointer-events-none absolute bottom-[-1px] left-[-1px] h-3 w-3 border-b border-l opacity-70",
-          accent === "blue" && "border-accent-blue",
-          accent === "green" && "border-accent-green",
+          accent === "silver" && "border-accent-silver",
+          accent === "bright" && "border-accent-bright",
           accent === "warning" && "border-warning",
           accent === "muted" && "border-muted",
         )}

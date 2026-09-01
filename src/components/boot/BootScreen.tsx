@@ -58,7 +58,7 @@ export function BootScreen({ onComplete }: BootScreenProps) {
         >
           <div className="hud-scanlines pointer-events-none absolute inset-0 opacity-40" aria-hidden />
 
-          <div className="w-full max-w-md font-mono text-sm text-accent-blue sm:text-base">
+          <div className="w-full max-w-md font-mono text-sm text-accent-silver sm:text-base">
             {LINES.slice(0, lineIndex).map((line, i) => (
               <motion.p
                 key={line}
@@ -67,18 +67,18 @@ export function BootScreen({ onComplete }: BootScreenProps) {
                 transition={{ duration: 0.3 }}
                 className="mb-2 flex items-center gap-2"
               >
-                <span className="text-accent-green">{">"}</span>
-                <span className={i === LINES.length - 1 ? "text-accent-green" : ""}>{line}</span>
+                <span className="text-white">{">"}</span>
+                <span className={i === LINES.length - 1 ? "text-white" : ""}>{line}</span>
               </motion.p>
             ))}
             {lineIndex < LINES.length && (
-              <span className="inline-block h-4 w-2 animate-pulse bg-accent-blue align-middle" />
+              <span className="inline-block h-4 w-2 animate-pulse bg-accent-silver align-middle" />
             )}
           </div>
 
           <div className="mt-10 h-px w-48 overflow-hidden bg-white/10">
             <motion.div
-              className="h-full bg-accent-blue"
+              className="h-full bg-accent-silver"
               initial={{ width: "0%" }}
               animate={{ width: `${Math.min(100, (lineIndex / LINES.length) * 100)}%` }}
               transition={{ duration: 0.4 }}

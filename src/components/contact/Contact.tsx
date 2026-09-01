@@ -54,10 +54,10 @@ export function Contact() {
             >
               <GlassPanel
                 interactive
-                accent="blue"
+                accent="silver"
                 className="flex items-center gap-4 p-5"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] border border-accent-blue/30 bg-accent-blue/[0.06] text-accent-blue">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] border border-accent-silver/30 bg-accent-silver/[0.06] text-accent-silver">
                   <link.icon size={18} />
                 </div>
                 <div className="min-w-0">
@@ -78,7 +78,7 @@ export function Contact() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="lg:col-span-3"
         >
-          <GlassPanel accent="green" className="p-6 sm:p-8">
+          <GlassPanel accent="bright" className="p-6 sm:p-8">
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
@@ -92,7 +92,7 @@ export function Contact() {
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full rounded-[2px] border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-text placeholder:text-muted/60 focus-visible:border-accent-blue"
+                    className="w-full rounded-[2px] border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-text placeholder:text-muted/60 focus-visible:border-accent-silver"
                     placeholder="Your name"
                   />
                 </div>
@@ -107,7 +107,7 @@ export function Contact() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full rounded-[2px] border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-text placeholder:text-muted/60 focus-visible:border-accent-blue"
+                    className="w-full rounded-[2px] border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-text placeholder:text-muted/60 focus-visible:border-accent-silver"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -123,7 +123,7 @@ export function Contact() {
                   rows={5}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full resize-none rounded-[2px] border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-text placeholder:text-muted/60 focus-visible:border-accent-blue"
+                  className="w-full resize-none rounded-[2px] border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-text placeholder:text-muted/60 focus-visible:border-accent-silver"
                   placeholder="What are you building?"
                 />
               </div>
@@ -139,7 +139,7 @@ export function Contact() {
                 )}
               </GlowButton>
               {status === "sent" && (
-                <p className="font-mono text-xs text-accent-green">
+                <p className="font-mono text-xs text-white">
                   Your email client should have opened with this message pre-filled.
                 </p>
               )}

@@ -18,10 +18,10 @@ export function GridBackground({ className, intensity = "normal" }: GridBackgrou
       <div
         className={cn(
           "absolute left-1/2 top-[-10%] h-[70vh] w-[70vh] -translate-x-1/2 rounded-full blur-[100px]",
-          intensity === "normal" ? "bg-accent-blue/[0.10]" : "bg-accent-blue/[0.06]",
+          intensity === "normal" ? "bg-accent-silver/[0.10]" : "bg-accent-silver/[0.06]",
         )}
       />
-      <div className="absolute bottom-[-20%] right-[10%] h-[50vh] w-[50vh] rounded-full bg-accent-green/[0.06] blur-[110px]" />
+      <div className="absolute bottom-[-20%] right-[10%] h-[50vh] w-[50vh] rounded-full bg-white/[0.06] blur-[110px]" />
 
       {/* moving grid */}
       <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_20%,black,transparent)]">

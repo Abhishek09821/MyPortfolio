@@ -16,13 +16,15 @@ export const profile = {
   currentGoal: "Trainee Software Engineer roles in Python / AI-ML / SaaS product teams",
   status: "Open to opportunities",
   github: "Abhishek09821",
-  email: "akhilbhai605@gmail.com",
+  leetcode: "abhishektiwari9821",
+  email: "abhishek.tiwarii9821@gmail.com",
   linkedin: "https://www.linkedin.com/in/abhishek-tiwari-3a3594300/",
   resumeUrl: "/resume/Abhishek_Tiwari_Resume.pdf",
 };
 
 export const socials = {
   github: `https://github.com/${profile.github}`,
+  leetcode: `https://leetcode.com/u/${profile.leetcode}/`,
   linkedin: profile.linkedin,
   email: `mailto:${profile.email}`,
   resume: profile.resumeUrl,
@@ -156,9 +158,9 @@ export const projects = [
     status: "Active development",
   },
   {
-    id: "canary-file",
+    id: "canary-ai-files",
     codename: "MISSION // CANARY",
-    name: "Canary-File",
+    name: "Canary AI Files",
     tagline: "Deception-based file monitoring & intrusion alerting",
     description:
       "A Python/Flask honeypot system that watches decoy files, captures webcam snapshots on tripwire events, and pushes alerts over Telegram, email, and WhatsApp — with encrypted storage and IP geolocation.",
@@ -190,21 +192,22 @@ export const projects = [
     status: "Active development",
   },
   {
-    id: "sentinel-ai",
-    codename: "MISSION // SENTINEL",
-    name: "Sentinel AI",
-    tagline: "Explainable VoIP call-tracing engine, built for a law-enforcement hackathon",
+    id: "reversex",
+    codename: "MISSION // REVERSEX",
+    name: "ReverseX",
+    tagline: "Evidence-first website technical intelligence analyzer",
     description:
-      "A FastAPI backend that parses PCAP captures with Scapy, correlates SIP/RTP sessions, and produces an explainable 0–100 risk score for suspicious call traffic — built end to end during a hackathon sprint.",
-    tech: ["FastAPI", "Scapy", "Python"],
+      "A full-stack web intelligence platform that analyzes publicly accessible websites through deterministic, evidence-backed methods. Uses real browser automation with Playwright to collect observable data across design, technology stack, security, performance, accessibility, SEO, and architecture — without guessing or assumptions.",
+    tech: ["Python", "FastAPI", "Playwright", "TypeScript", "Vite", "Tailwind CSS", "IndexedDB"],
     features: [
-      "SIP/RTP session correlation from raw packet captures",
-      "Explainable 0–100 risk-scoring engine",
-      "Synthetic PCAP generator for testing and demos",
+      "Evidence-driven deterministic detection across 8 analysis domains",
+      "Real browser-powered collection with Chromium and Playwright",
+      "Client-side report generation with IndexedDB persistence",
+      "Optional AI explanation layer that never invents facts",
     ],
-    github: `https://github.com/${profile.github}`,
-    demo: null,
-    status: "Hackathon build",
+    github: "https://github.com/Abhishek09821/weblens",
+    demo: "https://reversex-weblens.vercel.app",
+    status: "Active development",
   },
 ] as const;
 

@@ -35,8 +35,8 @@ export function About() {
               transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
               className={card.id === "goals" ? "sm:col-span-2 lg:col-span-1" : ""}
             >
-              <GlassPanel interactive accent="blue" className="h-full p-6">
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-[2px] border border-accent-blue/30 bg-accent-blue/[0.06] text-accent-blue">
+              <GlassPanel interactive accent="silver" className="h-full p-6">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-[2px] border border-accent-silver/30 bg-accent-silver/[0.06] text-accent-silver">
                   <Icon size={18} />
                 </div>
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">

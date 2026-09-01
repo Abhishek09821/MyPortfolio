@@ -25,7 +25,7 @@ export function SkillTree() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.45, delay: (i % 6) * 0.06, ease: [0.16, 1, 0.3, 1] }}
           >
-            <GlassPanel interactive accent="green" className="group h-full p-5">
+            <GlassPanel interactive accent="silver" className="group h-full p-5">
               <div className="mb-3 flex items-start justify-between gap-2">
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
@@ -35,7 +35,7 @@ export function SkillTree() {
                     {skill.name}
                   </h3>
                 </div>
-                <span className="whitespace-nowrap rounded-[2px] border border-accent-green/30 bg-accent-green/[0.06] px-2 py-1 font-mono text-[10px] font-semibold text-accent-green">
+                <span className="whitespace-nowrap rounded-[2px] border border-white/30 bg-white/[0.06] px-2 py-1 font-mono text-[10px] font-semibold text-white">
                   LV.{skill.level}
                 </span>
               </div>
@@ -46,7 +46,7 @@ export function SkillTree() {
               </div>
               <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
                 <motion.div
-                  className="h-full rounded-full bg-gradient-to-r from-accent-blue to-accent-green"
+                  className="h-full rounded-full bg-gradient-to-r from-accent-silver to-white"
                   initial={{ width: 0 }}
                   whileInView={{ width: `${skill.xp}%` }}
                   viewport={{ once: true }}
@@ -59,7 +59,7 @@ export function SkillTree() {
                   <span
                     key={dot}
                     className={`h-1 flex-1 rounded-full ${
-                      dot < skill.level ? "bg-accent-blue" : "bg-white/[0.08]"
+                      dot < skill.level ? "bg-accent-silver" : "bg-white/[0.08]"
                     }`}
                   />
                 ))}

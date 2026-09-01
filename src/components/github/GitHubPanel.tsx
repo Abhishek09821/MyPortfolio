@@ -28,7 +28,7 @@ export function GitHubPanel() {
             href={socials.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent-blue underline underline-offset-4"
+            className="text-accent-silver underline underline-offset-4"
           >
             GitHub
           </a>
@@ -63,8 +63,8 @@ export function GitHubPanel() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.06 }}
                 >
-                  <GlassPanel accent="blue" className="flex flex-col items-center gap-2 p-6 text-center">
-                    <Icon size={18} className="text-accent-blue" aria-hidden />
+                  <GlassPanel accent="silver" className="flex flex-col items-center gap-2 p-6 text-center">
+                    <Icon size={18} className="text-accent-silver" aria-hidden />
                     <span className="font-mono text-2xl font-semibold text-text">
                       {formatStat(stat.value)}
                     </span>
@@ -78,8 +78,8 @@ export function GitHubPanel() {
           </div>
 
           <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
-            <GlassPanel accent="green" className="p-6 lg:col-span-2">
-              <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-accent-green">
+            <GlassPanel accent="bright" className="p-6 lg:col-span-2">
+              <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-white">
                 Contribution Graph
               </p>
               <div className="overflow-x-auto">
@@ -93,8 +93,8 @@ export function GitHubPanel() {
               </div>
             </GlassPanel>
 
-            <GlassPanel accent="blue" className="p-6">
-              <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-accent-blue">
+            <GlassPanel accent="silver" className="p-6">
+              <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-accent-silver">
                 Language Mix
               </p>
               <div className="flex flex-col gap-3">
@@ -112,7 +112,7 @@ export function GitHubPanel() {
                       </div>
                       <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.06]">
                         <motion.div
-                          className="h-full rounded-full bg-accent-blue"
+                          className="h-full rounded-full bg-accent-silver"
                           initial={{ width: 0 }}
                           whileInView={{ width: `${pct}%` }}
                           viewport={{ once: true }}
@@ -133,12 +133,12 @@ export function GitHubPanel() {
                     href={state.data.latestRepo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between gap-2 text-sm text-text hover:text-accent-blue"
+                    className="group flex items-center justify-between gap-2 text-sm text-text hover:text-accent-silver"
                   >
                     <span className="truncate font-medium">{state.data.latestRepo.name}</span>
                     <ExternalLink
                       size={14}
-                      className="shrink-0 text-muted group-hover:text-accent-blue"
+                      className="shrink-0 text-muted group-hover:text-accent-silver"
                       aria-hidden
                     />
                   </a>

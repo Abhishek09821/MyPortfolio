@@ -22,7 +22,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-16"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-11"
       aria-label="Introduction"
     >
       <GridBackground />
@@ -33,9 +33,9 @@ export function Hero() {
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 flex items-center gap-2 rounded-full border border-accent-green/30 bg-accent-green/[0.06] px-4 py-1.5 font-mono text-xs uppercase tracking-[0.25em] text-accent-green"
+          className="mb-6 flex items-center gap-2 rounded-full border border-white/30 bg-white/[0.06] px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-white"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-accent-green" aria-hidden />
+          <span className="h-1.5 w-1.5 rounded-full bg-white" aria-hidden />
           {profile.status}
         </motion.span>
 
@@ -43,7 +43,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-5xl font-bold tracking-tight text-text text-glow-blue sm:text-6xl md:text-7xl lg:text-8xl"
+          className="font-display text-5xl font-bold tracking-tight text-white text-glow-white sm:text-6xl md:text-7xl lg:text-8xl"
         >
           {profile.name}
         </motion.h1>
@@ -56,7 +56,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
-              className="font-mono text-lg text-accent-blue sm:text-xl"
+              className="text-lg text-accent-silver sm:text-xl"
             >
               {profile.roles[roleIndex]}
             </motion.p>
@@ -109,6 +109,16 @@ export function Hero() {
             icon={<Terminal size={16} aria-hidden />}
           >
             GitHub
+          </GlowButton>
+          <GlowButton
+            as="a"
+            href={socials.leetcode}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="ghost"
+            icon={<Terminal size={16} aria-hidden />}
+          >
+            LeetCode
           </GlowButton>
           <GlowButton
             as="a"

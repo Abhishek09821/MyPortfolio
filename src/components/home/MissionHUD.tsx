@@ -16,7 +16,7 @@ export function MissionHUD() {
         {missionStatus.map((item, i) => (
           <GlassPanel
             key={item.label}
-            accent={i % 2 === 0 ? "blue" : "green"}
+            accent={i % 2 === 0 ? "silver" : "bright"}
             className="flex flex-col items-center gap-1 px-4 py-4 text-center"
           >
             <span className="font-mono text-lg font-semibold text-text sm:text-xl">

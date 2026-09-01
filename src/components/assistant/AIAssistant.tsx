@@ -58,10 +58,10 @@ export function AIAssistant() {
             aria-modal="false"
             aria-label="Portfolio assistant"
           >
-            <GlassPanel accent="blue" className="flex h-[26rem] flex-col overflow-hidden p-0">
+            <GlassPanel accent="silver" className="flex h-[26rem] flex-col overflow-hidden p-0">
               <div className="flex items-center justify-between border-b border-white/[0.06] px-4 py-3">
                 <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 animate-pulse-glow rounded-full bg-accent-green" aria-hidden />
+                  <span className="h-2 w-2 animate-pulse-glow rounded-full bg-white" aria-hidden />
                   <p className="font-mono text-xs uppercase tracking-[0.2em] text-text">
                     Portfolio Assistant
                   </p>
@@ -82,7 +82,7 @@ export function AIAssistant() {
                     key={i}
                     className={`max-w-[85%] rounded-[2px] px-3 py-2 text-sm leading-relaxed ${
                       m.role === "assistant"
-                        ? "border border-accent-blue/20 bg-accent-blue/[0.06] text-text"
+                        ? "border border-accent-silver/20 bg-accent-silver/[0.06] text-text"
                         : "ml-auto border border-white/10 bg-white/[0.04] text-text"
                     }`}
                   >
@@ -98,7 +98,7 @@ export function AIAssistant() {
                       key={s}
                       type="button"
                       onClick={() => send(s)}
-                      className="rounded-full border border-white/10 px-3 py-1.5 font-mono text-[11px] text-muted transition-colors hover:border-accent-blue/50 hover:text-accent-blue"
+                      className="rounded-full border border-white/10 px-3 py-1.5 font-mono text-[11px] text-muted transition-colors hover:border-accent-silver/50 hover:text-accent-silver"
                     >
                       {s}
                     </button>
@@ -115,12 +115,12 @@ export function AIAssistant() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ask something..."
-                  className="flex-1 rounded-[2px] border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-text placeholder:text-muted/60 focus-visible:border-accent-blue"
+                  className="flex-1 rounded-[2px] border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-text placeholder:text-muted/60 focus-visible:border-accent-silver"
                 />
                 <button
                   type="submit"
                   aria-label="Send"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[2px] border border-accent-blue/40 bg-accent-blue/10 text-accent-blue transition-colors hover:bg-accent-blue/20"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[2px] border border-accent-silver/40 bg-accent-silver/10 text-accent-silver transition-colors hover:bg-accent-silver/20"
                 >
                   <Send size={15} />
                 </button>
@@ -136,7 +136,7 @@ export function AIAssistant() {
         whileTap={{ scale: 0.94 }}
         aria-expanded={open}
         aria-label={open ? "Close portfolio assistant" : "Open portfolio assistant"}
-        className="flex h-14 w-14 items-center justify-center rounded-full border border-accent-blue/50 bg-surface/90 text-accent-blue shadow-[0_0_30px_-6px_rgba(0,229,255,0.5)] backdrop-blur-md transition-colors hover:bg-surface"
+        className="flex h-14 w-14 items-center justify-center rounded-full border border-accent-silver/50 bg-surface/90 text-accent-silver shadow-[0_0_30px_-6px_rgba(0,229,255,0.5)] backdrop-blur-md transition-colors hover:bg-surface"
       >
         {open ? <X size={22} /> : <Bot size={22} />}
       </motion.button>

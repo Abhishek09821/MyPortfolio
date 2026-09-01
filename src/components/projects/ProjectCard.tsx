@@ -30,7 +30,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       transition={{ duration: 0.55, delay: (index % 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
     >
       <GlassPanel
-        accent="blue"
+        accent="silver"
         interactive
         className="group/card relative overflow-hidden"
       >
@@ -51,13 +51,13 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover/card:opacity-100"
             style={{
               background:
-                "radial-gradient(320px circle at var(--spot-x) var(--spot-y), rgba(0,229,255,0.08), transparent 70%)",
+                "radial-gradient(320px circle at var(--spot-x) var(--spot-y), rgba(192,192,192,0.08), transparent 70%)",
             }}
           />
 
           <div className="relative flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent-blue">
+              <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent-silver">
                 {project.codename}
               </p>
               <h3 className="mt-2 text-2xl font-bold text-text">{project.name}</h3>
@@ -74,7 +74,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             {project.tech.map((t) => (
               <span
                 key={t}
-                className="rounded-[2px] border border-accent-green/25 bg-accent-green/[0.05] px-2.5 py-1 font-mono text-[11px] text-accent-green"
+                className="rounded-[2px] border border-white/25 bg-white/[0.05] px-2.5 py-1 font-mono text-[11px] text-white"
               >
                 {t}
               </span>
@@ -86,7 +86,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-[2px] border border-white/15 px-4 py-2 font-mono text-xs uppercase tracking-widest text-text transition-colors hover:border-accent-blue/60 hover:text-accent-blue"
+              className="inline-flex items-center gap-2 rounded-[2px] border border-white/15 px-4 py-2 font-mono text-xs uppercase tracking-widest text-text transition-colors hover:border-white/60 hover:text-white"
             >
               <Terminal size={14} aria-hidden />
               Source
@@ -96,7 +96,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-[2px] border border-accent-blue/40 bg-accent-blue/[0.06] px-4 py-2 font-mono text-xs uppercase tracking-widest text-accent-blue transition-colors hover:bg-accent-blue/[0.12]"
+                className="inline-flex items-center gap-2 rounded-[2px] border border-white/40 bg-white/[0.06] px-4 py-2 font-mono text-xs uppercase tracking-widest text-white transition-colors hover:bg-white/[0.12]"
               >
                 <ExternalLink size={14} aria-hidden />
                 Live Demo
@@ -130,7 +130,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
                 <ul className="mt-5 flex flex-col gap-2 border-t border-white/[0.06] pt-5">
                   {project.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2 text-sm text-muted">
-                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent-blue" aria-hidden />
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent-silver" aria-hidden />
                       {feature}
                     </li>
                   ))}
