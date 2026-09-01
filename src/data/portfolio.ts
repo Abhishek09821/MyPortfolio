@@ -6,14 +6,14 @@
 
 export const profile = {
   name: "Abhishek Tiwari",
-  callsign: "AT-09821",
+  callsign: "Abhee",
   roles: ["Software Engineer", "AI Developer", "Python Backend Developer"],
   tagline: "Building intelligent software that solves real-world problems.",
-  location: "Indore, Madhya Pradesh, India",
+  location: "Gwalior, Madhya Pradesh, India",
   education: "B.Tech, Computer Science & Engineering — Amity University Madhya Pradesh",
   focus: "AI-driven products, agentic systems, and full-stack engineering",
   mission: "Ship complete, production-quality software — not prototypes.",
-  currentGoal: "Trainee Software Engineer roles in Java / AI-ML / SaaS product teams",
+  currentGoal: "Trainee Software Engineer roles in Python / AI-ML / SaaS product teams",
   status: "Open to opportunities",
   github: "Abhishek09821",
   email: "akhilbhai605@gmail.com",
