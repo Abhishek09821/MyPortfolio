@@ -35,11 +35,14 @@ const SKILL_ICONS: Record<string, React.ComponentType<{ size?: number; className
 };
 
 export function Achievements() {
-  const hackathonWin = achievements.find((a) => a.id === "hackathon-winner");
+  const hackathons = achievements.filter((a) => a.category === "Hackathon");
   const certifications = achievements.filter((a) => a.category === "Certification");
   const otherAchievements = achievements.filter(
     (a) => a.category === "Achievement" || a.category === "Skill"
   );
+
+  const featuredHackathon = hackathons.find((h) => h.highlight);
+  const otherHackathons = hackathons.filter((h) => !h.highlight);
 
   return (
     <section id="achievements" className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
@@ -50,7 +53,7 @@ export function Achievements() {
       />
 
       {/* Featured: Hackathon Win */}
-      {hackathonWin && (
+      {featuredHackathon && (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,22 +79,24 @@ export function Achievements() {
                   <span className="rounded-full border border-white/40 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
                     🏆 Hackathon Winner
                   </span>
-                  {hackathonWin.date && (
-                    <span className="text-xs text-muted">{hackathonWin.date}</span>
+                  {featuredHackathon.date && (
+                    <span className="text-xs text-muted">{featuredHackathon.date}</span>
                   )}
                 </div>
                 <h3 className="text-2xl font-bold text-white sm:text-3xl">
-                  {hackathonWin.title}
+                  {featuredHackathon.title}
                 </h3>
                 <p className="mt-2 text-base leading-relaxed text-muted">
-                  {hackathonWin.description}
+                  {featuredHackathon.description}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
+                  {featuredHackathon.project && (
+                    <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/80">
+                      {featuredHackathon.project}
+                    </span>
+                  )}
                   <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/80">
                     Team Omen
-                  </span>
-                  <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/80">
-                    Finance AI
                   </span>
                   <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/80">
                     48 Hours
@@ -100,9 +105,9 @@ export function Achievements() {
                     Low-Hallucination
                   </span>
                 </div>
-                {hackathonWin.certificateUrl && (
+                {featuredHackathon.certificateUrl && (
                   <a
-                    href={hackathonWin.certificateUrl}
+                    href={featuredHackathon.certificateUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-white/20"
@@ -115,6 +120,64 @@ export function Achievements() {
             </div>
           </GlassPanel>
         </motion.div>
+      )}
+
+      {/* Other Hackathons */}
+      {otherHackathons.length > 0 && (
+        <div className="mb-8">
+          <h3 className="mb-4 flex items-center gap-2 font-mono text-sm uppercase tracking-[0.2em] text-white">
+            <Trophy size={16} />
+            Hackathon Participations
+          </h3>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {otherHackathons.map((hackathon, i) => (
+              <motion.div
+                key={hackathon.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <GlassPanel interactive accent="silver" className="flex h-full flex-col p-6">
+                  <div className="mb-3 flex items-start justify-between">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[#ffa116]/30 bg-[#ffa116]/10 text-[#ffa116]">
+                      <Trophy size={20} />
+                    </div>
+                    {hackathon.date && (
+                      <span className="text-xs font-mono text-muted">{hackathon.date}</span>
+                    )}
+                  </div>
+                  <h4 className="mb-2 text-lg font-semibold text-white">
+                    {hackathon.title}
+                  </h4>
+                  <p className="mb-3 flex-1 text-sm leading-relaxed text-muted">
+                    {hackathon.description}
+                  </p>
+                  {hackathon.project && (
+                    <div className="mb-3 flex flex-wrap gap-2">
+                      <span className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-white/70">
+                        Project: {hackathon.project}
+                      </span>
+                    </div>
+                  )}
+                  {hackathon.certificateUrl && (
+                    <a
+                      href={hackathon.certificateUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-accent-silver transition-colors hover:text-white"
+                    >
+                      View Certificate
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
+                  )}
+                </GlassPanel>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       )}
 
       {/* Certifications Grid */}

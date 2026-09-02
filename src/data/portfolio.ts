@@ -213,13 +213,35 @@ export const projects = [
 
 export const achievements = [
   {
-    id: "hackathon-winner",
+    id: "hackathon-zynk-2026",
     title: "🏆 1st Place - Zynk Hackathon 2026",
-    description: "Won first position with Team Omen for building a Low-Hallucination Finance AI in 48 hours at Amity University Gwalior.",
+    description: "Won first position with Team Omen for building FinMate AI - a Low-Hallucination Finance AI in 48 hours at Amity University Gwalior.",
     date: "April 2026",
     category: "Hackathon",
     highlight: true,
     certificateUrl: "/certificates/hackathon-certificate.pdf",
+    project: "FinMate AI",
+    achievement: "1st Place Winner",
+  },
+  {
+    id: "hackathon-sih-2025",
+    title: "Smart India Hackathon 2025 - Participant",
+    description: "Participated in Smart India Hackathon 2025 and built an Automatic Attendance System at Amity University Madhya Pradesh.",
+    date: "September 2025",
+    category: "Hackathon",
+    certificateUrl: "/certificates/hackathon-sih-2025.jpg",
+    project: "Automatic Attendance System",
+    achievement: "Participant",
+  },
+  {
+    id: "hackathon-sih-2023",
+    title: "Smart India Hackathon 2023 - Participant",
+    description: "Participated in Smart India Hackathon 2023 and developed Chikitsak - a healthcare solution at Amity University Madhya Pradesh.",
+    date: "September 2023",
+    category: "Hackathon",
+    certificateUrl: "/certificates/hackathon-sih-2023.jpg",
+    project: "Chikitsak",
+    achievement: "Participant",
   },
   {
     id: "palo-alto-cybersecurity",
