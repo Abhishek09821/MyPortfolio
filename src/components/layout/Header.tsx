@@ -41,10 +41,10 @@ export function Header() {
     const handleScroll = () => {
       // Don't update active state while user is manually clicking
       if (isUserClick) return;
-      
+
       scrollTimeout = setTimeout(() => {
-        const scrollPosition = window.scrollY + 100; // Offset for header
-        
+        const scrollPosition = window.scrollY + 120; // Offset for header
+
         // Find the current section based on scroll position
         for (let i = sections.length - 1; i >= 0; i--) {
           const section = sections[i];
@@ -65,13 +65,42 @@ export function Header() {
     };
   }, [isUserClick]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (mobileOpen) {
+      const original = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = original;
+      };
+    }
+  }, [mobileOpen]);
+
+  // Close on resize to lg and above
+  useEffect(() => {
+    function onResize() {
+      if (window.innerWidth >= 1024 && mobileOpen) {
+        setMobileOpen(false);
+      }
+    }
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [mobileOpen]);
+
   function goTo(id: string) {
     setMobileOpen(false);
     setIsUserClick(true);
     setActiveId(id); // Instantly set the active ID when clicked
-    
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    
+
+    const el = document.getElementById(id);
+    if (el) {
+      // Account for fixed header offset
+      const headerOffset = 56; // h-14 header
+      const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+
     // Re-enable scroll tracking after the smooth scroll completes
     setTimeout(() => {
       setIsUserClick(false);
@@ -85,12 +114,12 @@ export function Header() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out",
-        scrolled 
-          ? "border-b border-white/[0.12] bg-black/95 backdrop-blur-xl backdrop-saturate-150 shadow-lg shadow-black/20" 
+        scrolled
+          ? "border-b border-white/[0.12] bg-black/95 backdrop-blur-xl backdrop-saturate-150 shadow-lg shadow-black/20"
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-11 max-w-[1400px] items-center justify-between px-6 lg:px-8">
+      <div className="mx-auto flex h-14 w-full max-w-[1400px] items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
         {/* Logo - Apple style */}
         <motion.button
           type="button"
@@ -98,23 +127,23 @@ export function Header() {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.2 }}
-          className="flex items-center gap-2.5 rounded-sm text-[15px] font-semibold tracking-tight text-white transition-opacity duration-200 hover:opacity-80"
+          className="flex shrink-0 items-center gap-2 rounded-sm text-[15px] font-semibold tracking-tight text-white transition-opacity duration-200 hover:opacity-80"
           aria-label={`${profile.name} — go to top`}
         >
-          <motion.span 
-            animate={{ 
+          <motion.span
+            animate={{
               scale: [1, 1.2, 1],
-              opacity: [1, 0.8, 1] 
+              opacity: [1, 0.8, 1],
             }}
-            transition={{ 
+            transition={{
               duration: 2,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
-            className="h-1.5 w-1.5 rounded-full bg-white" 
-            aria-hidden 
+            className="h-1.5 w-1.5 rounded-full bg-white"
+            aria-hidden
           />
-          {profile.callsign}
+          <span className="truncate">{profile.callsign}</span>
         </motion.button>
 
         {/* Desktop Navigation - Apple style */}
@@ -127,41 +156,41 @@ export function Header() {
               whileTap={{ scale: 0.98 }}
               className={cn(
                 "relative py-2 text-[13px] font-normal tracking-tight transition-all duration-200 ease-out",
-                activeId === item.id 
-                  ? "text-white font-medium" 
+                activeId === item.id
+                  ? "font-medium text-white"
                   : "text-white/60 hover:text-white/90",
               )}
               aria-current={activeId === item.id ? "true" : undefined}
             >
               {item.label}
-              
+
               {/* Background pill when active */}
               {activeId === item.id && (
                 <motion.div
                   layoutId="nav-pill"
                   className="absolute inset-0 -z-10 rounded-full bg-white/10 backdrop-blur-sm"
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: isUserClick ? 600 : 380, 
+                  transition={{
+                    type: "spring",
+                    stiffness: isUserClick ? 600 : 380,
                     damping: isUserClick ? 40 : 30,
-                    duration: isUserClick ? 0.15 : 0.3
+                    duration: isUserClick ? 0.15 : 0.3,
                   }}
                 />
               )}
-              
+
               {/* Bottom dot indicator */}
               <motion.span
                 className="absolute left-1/2 -bottom-2 h-1 w-1 rounded-full bg-white"
                 initial={{ opacity: 0, scale: 0 }}
-                animate={{ 
+                animate={{
                   opacity: activeId === item.id ? 1 : 0,
-                  scale: activeId === item.id ? 1 : 0
+                  scale: activeId === item.id ? 1 : 0,
                 }}
-                transition={{ 
-                  type: "spring", 
-                  stiffness: isUserClick ? 600 : 400, 
+                transition={{
+                  type: "spring",
+                  stiffness: isUserClick ? 600 : 400,
                   damping: isUserClick ? 40 : 25,
-                  duration: isUserClick ? 0.1 : 0.2
+                  duration: isUserClick ? 0.1 : 0.2,
                 }}
                 style={{ x: "-50%" }}
               />
@@ -169,7 +198,7 @@ export function Header() {
           ))}
         </nav>
 
-        {/* Right side - Resume button */}
+        {/* Right side - Desktop Resume button */}
         <div className="hidden items-center gap-4 lg:flex">
           <motion.a
             href={socials.resume}
@@ -184,11 +213,11 @@ export function Header() {
           </motion.a>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - always visible below lg */}
         <motion.button
           type="button"
           whileTap={{ scale: 0.9 }}
-          className="rounded-sm p-1.5 text-white transition-colors duration-200 hover:bg-white/10 lg:hidden"
+          className="ml-auto inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-white transition-colors duration-200 hover:bg-white/10 lg:hidden"
           onClick={() => setMobileOpen((v) => !v)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
@@ -203,7 +232,7 @@ export function Header() {
                 exit={{ rotate: 90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <X size={20} />
+                <X size={22} />
               </motion.div>
             ) : (
               <motion.div
@@ -213,68 +242,87 @@ export function Header() {
                 exit={{ rotate: -90, opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <Menu size={20} />
+                <Menu size={22} />
               </motion.div>
             )}
           </AnimatePresence>
         </motion.button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - full-screen panel */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.nav
-            id="mobile-nav"
-            aria-label="Section navigation"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-white/[0.08] bg-black/95 backdrop-blur-xl backdrop-saturate-150 lg:hidden"
-          >
-            <motion.ul 
-              className="flex flex-col px-6 py-4"
-              initial={{ y: -20 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
-              {NAV_ITEMS.map((item, index) => (
-                <motion.li 
-                  key={item.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  <button
-                    onClick={() => goTo(item.id)}
-                    className={cn(
-                      "w-full rounded-lg py-3 text-left text-[15px] transition-all duration-200",
-                      activeId === item.id 
-                        ? "font-medium text-white bg-white/5" 
-                        : "text-white/70 hover:text-white hover:bg-white/5",
-                    )}
-                  >
-                    {item.label}
-                  </button>
-                </motion.li>
-              ))}
-            </motion.ul>
+          <>
+            {/* Backdrop */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.2 }}
-              className="px-6 pb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 top-14 z-40 bg-black/70 backdrop-blur-sm lg:hidden"
+              onClick={() => setMobileOpen(false)}
+              aria-hidden
+            />
+
+            <motion.nav
+              id="mobile-nav"
+              aria-label="Section navigation"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative border-t border-white/[0.08] bg-black/95 backdrop-blur-xl backdrop-saturate-150 lg:hidden"
             >
-              <a
-                href={socials.resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-full bg-white px-4 py-3 text-center text-[13px] font-medium text-black transition-all duration-200 hover:bg-white/95"
+              <motion.ul
+                className="flex flex-col px-4 py-4"
+                initial={{ y: -20 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
-                Resume
-              </a>
-            </motion.div>
-          </motion.nav>
+                {NAV_ITEMS.map((item, index) => (
+                  <motion.li
+                    key={item.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.04 }}
+                  >
+                    <button
+                      onClick={() => goTo(item.id)}
+                      className={cn(
+                        "flex w-full items-center justify-between rounded-lg px-3 py-3.5 text-left text-[15px] transition-all duration-200",
+                        activeId === item.id
+                          ? "bg-white/[0.08] font-medium text-white"
+                          : "text-white/70 hover:bg-white/5 hover:text-white",
+                      )}
+                      aria-current={activeId === item.id ? "true" : undefined}
+                    >
+                      <span>{item.label}</span>
+                      {activeId === item.id && (
+                        <span className="h-1.5 w-1.5 rounded-full bg-white" aria-hidden />
+                      )}
+                    </button>
+                  </motion.li>
+                ))}
+              </motion.ul>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: 0.25 }}
+                className="border-t border-white/[0.06] px-4 py-4"
+              >
+                <a
+                  href={socials.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-full bg-white px-4 py-3 text-center text-[13px] font-medium text-black transition-all duration-200 hover:bg-white/95"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Resume
+                </a>
+              </motion.div>
+            </motion.nav>
+          </>
         )}
       </AnimatePresence>
     </motion.header>

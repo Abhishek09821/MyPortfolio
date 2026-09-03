@@ -22,21 +22,21 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-11"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pt-14"
       aria-label="Introduction"
     >
       <GridBackground />
       <ParticleField />
 
-      <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-4 py-24 text-center sm:px-6">
+      <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-4 py-20 text-center sm:px-6 sm:py-24">
         <motion.span
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-6 flex items-center gap-2 rounded-full border border-white/30 bg-white/[0.06] px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-white"
+          className="mb-6 flex max-w-full items-center gap-2 rounded-full border border-white/30 bg-white/[0.06] px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white sm:px-4 sm:text-xs sm:tracking-[0.25em]"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-white" aria-hidden />
-          {profile.status}
+          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white" aria-hidden />
+          <span className="truncate">{profile.status}</span>
         </motion.span>
 
         <motion.h1
@@ -76,7 +76,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          className="mt-10 flex w-full flex-col items-stretch justify-center gap-3 px-2 sm:flex-row sm:flex-wrap sm:items-center sm:px-0"
         >
           <GlowButton
             as="a"
