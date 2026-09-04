@@ -28,7 +28,7 @@ export function Hero() {
       <GridBackground />
       <ParticleField />
 
-      <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-4 py-20 text-center sm:px-6 sm:py-24">
+      <div className="relative mx-auto flex w-full max-w-5xl flex-1 flex-col items-center justify-center px-4 py-16 text-center sm:px-6 sm:py-20">
         <motion.span
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-5xl font-bold tracking-tight text-white text-glow-white sm:text-6xl md:text-7xl lg:text-8xl"
+          className="font-display text-4xl font-bold tracking-tight text-white text-glow-white sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
         >
           {profile.name}
         </motion.h1>
@@ -56,7 +56,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
-              className="text-lg text-accent-silver sm:text-xl"
+              className="text-base text-accent-silver sm:text-lg"
             >
               {profile.roles[roleIndex]}
             </motion.p>
@@ -67,7 +67,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="mt-6 max-w-xl text-pretty text-base text-muted sm:text-lg"
+          className="mt-5 text-sm leading-relaxed text-muted sm:text-base"
         >
           {profile.tagline}
         </motion.p>
@@ -76,7 +76,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="mt-10 flex w-full flex-col items-stretch justify-center gap-3 px-2 sm:flex-row sm:flex-wrap sm:items-center sm:px-0"
+          className="mt-10 flex w-full flex-col items-stretch justify-center gap-3 px-0 sm:flex-row sm:flex-wrap sm:items-center"
         >
           <GlowButton
             as="a"

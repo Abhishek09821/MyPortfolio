@@ -50,7 +50,7 @@ export function Achievements() {
   );
 
   return (
-    <section id="achievements" className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+    <section id="achievements" className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
       <SectionHeading
         eyebrow="ACCOMPLISHMENTS"
         title="Achievements & Certifications"
@@ -260,7 +260,7 @@ export function Achievements() {
               >
                 <GlassPanel className="p-4 sm:p-5" accent="silver">
                   <div className="flex flex-wrap items-center justify-between gap-3">
-                    <div className="flex items-center gap-4">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-4">
                       {hackathons.map((h, i) => {
                         const isWinner = "highlight" in h && h.highlight;
                         return (

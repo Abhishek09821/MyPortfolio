@@ -57,6 +57,12 @@ section[id] {
 html,
 body {
   overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Ensure every direct section and wrapper never causes bleed */
+section {
+  max-width: 100%;
 }
 
 /* iOS safe areas for the assistant + header on notched devices */

@@ -25,20 +25,20 @@ export function SectionHeading({
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        "mb-12 flex flex-col gap-3",
+        "mb-8 flex flex-col gap-2 sm:mb-10 lg:mb-12",
         align === "center" && "items-center text-center",
         className,
       )}
     >
-      <span className="flex items-center gap-3 font-mono text-xs tracking-[0.3em] text-accent-silver">
-        <span className="h-px w-8 bg-accent-silver/60" aria-hidden />
+      <span className="flex items-center gap-2 font-mono text-[10px] tracking-[0.25em] text-accent-silver">
+        <span className="h-px w-6 bg-accent-silver/60" aria-hidden />
         {eyebrow}
       </span>
-      <h2 className="text-balance text-3xl font-bold tracking-tight text-text sm:text-4xl md:text-5xl">
+      <h2 className="text-balance text-2xl font-bold tracking-tight text-text sm:text-3xl md:text-4xl">
         {title}
       </h2>
       {description && (
-        <p className="max-w-2xl text-pretty text-base text-muted sm:text-lg">{description}</p>
+        <p className="max-w-2xl text-pretty text-sm text-muted sm:text-base">{description}</p>
       )}
     </motion.div>
   );

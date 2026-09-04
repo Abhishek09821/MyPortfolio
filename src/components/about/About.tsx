@@ -16,7 +16,7 @@ const ICONS: Record<string, React.ComponentType<{ size?: number; className?: str
 
 export function About() {
   return (
-    <section id="about" className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+    <section id="about" className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
       <SectionHeading
         eyebrow="OPERATOR PROFILE"
         title="About"

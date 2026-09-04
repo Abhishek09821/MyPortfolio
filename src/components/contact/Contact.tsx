@@ -30,7 +30,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
+    <section id="contact" className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
       <SectionHeading
         eyebrow="MISSION COMPLETE"
         title="Get In Touch"
@@ -39,7 +39,7 @@ export function Contact() {
       />
 
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-5">
-        <div className="grid grid-cols-2 gap-4 lg:col-span-2 lg:grid-cols-1">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-1">
           {CONTACT_LINKS.map((link, i) => (
             <motion.a
               key={link.id}

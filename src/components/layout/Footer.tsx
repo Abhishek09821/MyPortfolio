@@ -13,8 +13,8 @@ export function Footer() {
   return (
     <footer className="relative border-t border-white/[0.08] bg-surface-2/60">
       {/* Main Footer Content */}
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid gap-8 sm:gap-10 sm:grid-cols-2 md:grid-cols-3">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center gap-2.5">

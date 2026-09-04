@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export function CareerJourney() {
   return (
-    <section id="journey" className="relative mx-auto max-w-5xl px-4 py-24 sm:px-6 lg:px-8">
+    <section id="journey" className="relative mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
       <SectionHeading
         eyebrow="PROGRESSION LOG"
         title="Career Journey"

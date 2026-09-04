@@ -39,13 +39,9 @@ export function Header() {
     let scrollTimeout: NodeJS.Timeout;
 
     const handleScroll = () => {
-      // Don't update active state while user is manually clicking
       if (isUserClick) return;
-
       scrollTimeout = setTimeout(() => {
-        const scrollPosition = window.scrollY + 120; // Offset for header
-
-        // Find the current section based on scroll position
+        const scrollPosition = window.scrollY + 120;
         for (let i = sections.length - 1; i >= 0; i--) {
           const section = sections[i];
           if (section && scrollPosition >= section.offsetTop) {
@@ -57,7 +53,7 @@ export function Header() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial call
+    handleScroll();
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -91,165 +87,153 @@ export function Header() {
   function goTo(id: string) {
     setMobileOpen(false);
     setIsUserClick(true);
-    setActiveId(id); // Instantly set the active ID when clicked
+    setActiveId(id);
 
     const el = document.getElementById(id);
     if (el) {
-      // Account for fixed header offset
-      const headerOffset = 56; // h-14 header
+      const headerOffset = 56;
       const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
       window.scrollTo({ top, behavior: "smooth" });
     }
 
-    // Re-enable scroll tracking after the smooth scroll completes
     setTimeout(() => {
       setIsUserClick(false);
     }, 1000);
   }
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out",
-        scrolled
-          ? "border-b border-white/[0.12] bg-black/95 backdrop-blur-xl backdrop-saturate-150 shadow-lg shadow-black/20"
-          : "border-b border-transparent bg-transparent",
-      )}
-    >
-      <div className="mx-auto flex h-14 w-full max-w-[1400px] items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
-        {/* Logo - Apple style */}
-        <motion.button
-          type="button"
-          onClick={() => goTo("home")}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ duration: 0.2 }}
-          className="flex shrink-0 items-center gap-2 rounded-sm text-[15px] font-semibold tracking-tight text-white transition-opacity duration-200 hover:opacity-80"
-          aria-label={`${profile.name} — go to top`}
-        >
-          <motion.span
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [1, 0.8, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="h-1.5 w-1.5 rounded-full bg-white"
-            aria-hidden
-          />
-          <span className="truncate">{profile.callsign}</span>
-        </motion.button>
+    <>
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out",
+          scrolled
+            ? "border-b border-white/[0.12] bg-black/95 backdrop-blur-xl backdrop-saturate-150 shadow-lg shadow-black/20"
+            : "border-b border-transparent bg-transparent",
+        )}
+      >
+        <div className="mx-auto flex h-14 w-full max-w-[1400px] items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
+          {/* Logo */}
+          <motion.button
+            type="button"
+            onClick={() => goTo("home")}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.2 }}
+            className="flex shrink-0 items-center gap-2 rounded-sm text-[15px] font-semibold tracking-tight text-white transition-opacity duration-200 hover:opacity-80"
+            aria-label={`${profile.name} — go to top`}
+          >
+            <motion.span
+              animate={{ scale: [1, 1.2, 1], opacity: [1, 0.8, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="h-1.5 w-1.5 rounded-full bg-white"
+              aria-hidden
+            />
+            <span className="max-w-[140px] truncate sm:max-w-none">{profile.callsign}</span>
+          </motion.button>
 
-        {/* Desktop Navigation - Apple style */}
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Section navigation">
-          {NAV_ITEMS.map((item) => (
-            <motion.button
-              key={item.id}
-              onClick={() => goTo(item.id)}
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.98 }}
-              className={cn(
-                "relative py-2 text-[13px] font-normal tracking-tight transition-all duration-200 ease-out",
-                activeId === item.id
-                  ? "font-medium text-white"
-                  : "text-white/60 hover:text-white/90",
-              )}
-              aria-current={activeId === item.id ? "true" : undefined}
-            >
-              {item.label}
-
-              {/* Background pill when active */}
-              {activeId === item.id && (
-                <motion.div
-                  layoutId="nav-pill"
-                  className="absolute inset-0 -z-10 rounded-full bg-white/10 backdrop-blur-sm"
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-5 lg:flex xl:gap-7" aria-label="Section navigation">
+            {NAV_ITEMS.map((item) => (
+              <motion.button
+                key={item.id}
+                onClick={() => goTo(item.id)}
+                whileHover={{ y: -1 }}
+                whileTap={{ scale: 0.98 }}
+                className={cn(
+                  "relative py-2 text-[13px] font-normal tracking-tight transition-all duration-200 ease-out",
+                  activeId === item.id
+                    ? "font-medium text-white"
+                    : "text-white/60 hover:text-white/90",
+                )}
+                aria-current={activeId === item.id ? "true" : undefined}
+              >
+                {item.label}
+                {activeId === item.id && (
+                  <motion.div
+                    layoutId="nav-pill"
+                    className="absolute inset-0 -z-10 rounded-full bg-white/10 backdrop-blur-sm"
+                    transition={{
+                      type: "spring",
+                      stiffness: isUserClick ? 600 : 380,
+                      damping: isUserClick ? 40 : 30,
+                      duration: isUserClick ? 0.15 : 0.3,
+                    }}
+                  />
+                )}
+                <motion.span
+                  className="absolute left-1/2 -bottom-2 h-1 w-1 rounded-full bg-white"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{
+                    opacity: activeId === item.id ? 1 : 0,
+                    scale: activeId === item.id ? 1 : 0,
+                  }}
                   transition={{
                     type: "spring",
-                    stiffness: isUserClick ? 600 : 380,
-                    damping: isUserClick ? 40 : 30,
-                    duration: isUserClick ? 0.15 : 0.3,
+                    stiffness: isUserClick ? 600 : 400,
+                    damping: isUserClick ? 40 : 25,
                   }}
+                  style={{ x: "-50%" }}
                 />
-              )}
+              </motion.button>
+            ))}
+          </nav>
 
-              {/* Bottom dot indicator */}
-              <motion.span
-                className="absolute left-1/2 -bottom-2 h-1 w-1 rounded-full bg-white"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{
-                  opacity: activeId === item.id ? 1 : 0,
-                  scale: activeId === item.id ? 1 : 0,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: isUserClick ? 600 : 400,
-                  damping: isUserClick ? 40 : 25,
-                  duration: isUserClick ? 0.1 : 0.2,
-                }}
-                style={{ x: "-50%" }}
-              />
-            </motion.button>
-          ))}
-        </nav>
+          {/* Desktop Resume button */}
+          <div className="hidden items-center gap-4 lg:flex">
+            <motion.a
+              href={socials.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="rounded-full bg-white px-5 py-1.5 text-[13px] font-medium text-black transition-all duration-300 hover:bg-white/95 hover:shadow-lg hover:shadow-white/20"
+            >
+              Resume
+            </motion.a>
+          </div>
 
-        {/* Right side - Desktop Resume button */}
-        <div className="hidden items-center gap-4 lg:flex">
-          <motion.a
-            href={socials.resume}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="rounded-full bg-white px-5 py-1.5 text-[13px] font-medium text-black transition-all duration-300 hover:bg-white/95 hover:shadow-lg hover:shadow-white/20"
+          {/* Mobile Menu Button */}
+          <motion.button
+            type="button"
+            whileTap={{ scale: 0.9 }}
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-white transition-colors duration-200 hover:bg-white/10 lg:hidden"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
-            Resume
-          </motion.a>
+            <AnimatePresence mode="wait" initial={false}>
+              {mobileOpen ? (
+                <motion.div
+                  key="close"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={22} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={22} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
+      </motion.header>
 
-        {/* Mobile Menu Button - always visible below lg */}
-        <motion.button
-          type="button"
-          whileTap={{ scale: 0.9 }}
-          className="ml-auto inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md text-white transition-colors duration-200 hover:bg-white/10 lg:hidden"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-nav"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-        >
-          <AnimatePresence mode="wait" initial={false}>
-            {mobileOpen ? (
-              <motion.div
-                key="close"
-                initial={{ rotate: -90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: 90, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <X size={22} />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="menu"
-                initial={{ rotate: 90, opacity: 0 }}
-                animate={{ rotate: 0, opacity: 1 }}
-                exit={{ rotate: -90, opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Menu size={22} />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.button>
-      </div>
-
-      {/* Mobile Navigation - full-screen panel */}
+      {/* Mobile Navigation — rendered outside the header so it's a true full-screen overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -264,27 +248,32 @@ export function Header() {
               aria-hidden
             />
 
+            {/* Drawer panel */}
             <motion.nav
               id="mobile-nav"
               aria-label="Section navigation"
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="relative border-t border-white/[0.08] bg-black/95 backdrop-blur-xl backdrop-saturate-150 lg:hidden"
+              className="fixed inset-x-0 top-14 z-50 max-h-[calc(100svh-3.5rem)] overflow-y-auto border-t border-white/[0.08] bg-black/95 backdrop-blur-xl backdrop-saturate-150 lg:hidden"
             >
               <motion.ul
-                className="flex flex-col px-4 py-4"
-                initial={{ y: -20 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col px-4 py-3"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                  visible: { transition: { staggerChildren: 0.04 } },
+                  hidden: {},
+                }}
               >
-                {NAV_ITEMS.map((item, index) => (
+                {NAV_ITEMS.map((item) => (
                   <motion.li
                     key={item.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.04 }}
+                    variants={{
+                      hidden: { opacity: 0, x: -16 },
+                      visible: { opacity: 1, x: 0, transition: { duration: 0.25 } },
+                    }}
                   >
                     <button
                       onClick={() => goTo(item.id)}
@@ -306,9 +295,9 @@ export function Header() {
               </motion.ul>
 
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.25 }}
+                transition={{ duration: 0.3, delay: 0.28 }}
                 className="border-t border-white/[0.06] px-4 py-4"
               >
                 <a
@@ -321,10 +310,13 @@ export function Header() {
                   Resume
                 </a>
               </motion.div>
+
+              {/* Safe-area spacer for notched devices */}
+              <div className="h-[env(safe-area-inset-bottom,0px)]" />
             </motion.nav>
           </>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }

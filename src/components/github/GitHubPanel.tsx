@@ -18,7 +18,7 @@ export function GitHubPanel() {
   const githubState = useGithubStats();
 
   return (
-    <section id="github" className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+    <section id="github" className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
       <SectionHeading
         eyebrow="LIVE CODING STATS"
         title="GitHub & LeetCode"
@@ -26,12 +26,12 @@ export function GitHubPanel() {
       />
 
       {/* Tab Switcher */}
-      <div className="mb-8 flex items-center justify-center gap-2">
-        <GlassPanel className="inline-flex gap-1 p-1.5">
+      <div className="mb-8 flex items-center justify-center">
+        <GlassPanel className="flex w-full max-w-xs gap-1 p-1.5 sm:w-auto">
           <button
             onClick={() => setActiveTab("github")}
             className={cn(
-              "relative rounded-md px-6 py-2.5 text-sm font-medium transition-all duration-200",
+              "relative flex-1 rounded-md px-4 py-2.5 text-sm font-medium transition-all duration-200 sm:flex-none sm:px-6",
               activeTab === "github"
                 ? "text-white"
                 : "text-white/60 hover:text-white/80"
@@ -44,7 +44,7 @@ export function GitHubPanel() {
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}
-            <span className="relative flex items-center gap-2">
+            <span className="relative flex items-center justify-center gap-2">
               <Terminal size={16} />
               GitHub
             </span>
@@ -52,7 +52,7 @@ export function GitHubPanel() {
           <button
             onClick={() => setActiveTab("leetcode")}
             className={cn(
-              "relative rounded-md px-6 py-2.5 text-sm font-medium transition-all duration-200",
+              "relative flex-1 rounded-md px-4 py-2.5 text-sm font-medium transition-all duration-200 sm:flex-none sm:px-6",
               activeTab === "leetcode"
                 ? "text-white"
                 : "text-white/60 hover:text-white/80"
@@ -65,7 +65,7 @@ export function GitHubPanel() {
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}
-            <span className="relative flex items-center gap-2">
+            <span className="relative flex items-center justify-center gap-2">
               <Code2 size={16} />
               LeetCode
             </span>
@@ -84,7 +84,7 @@ export function GitHubPanel() {
             transition={{ duration: 0.3 }}
           >
             {/* GitHub Stats Header */}
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
               <h3 className="flex items-center gap-2 font-mono text-sm uppercase tracking-[0.2em] text-white">
                 <Activity size={16} />
                 Live GitHub Stats
@@ -161,14 +161,14 @@ export function GitHubPanel() {
                     <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-white">
                       GitHub Contributions (365 Days)
                     </p>
-                    <div className="overflow-x-auto rounded-lg bg-[#0d1117] p-4">
+                    <div className="overflow-x-auto rounded-lg bg-[#0d1117] p-3 sm:p-4">
                       {/* GitHub-style contribution graph using GitHub's green color */}
                       <img
                         src={`https://ghchart.rshah.org/39d353/${profile.github}`}
                         alt={`${profile.name}'s GitHub contribution graph`}
-                        className="min-w-[600px] w-full"
+                        className="w-full"
+                        style={{ minWidth: "320px" }}
                         loading="lazy"
-                        style={{ imageRendering: 'pixelated' }}
                       />
                     </div>
                   </GlassPanel>
@@ -247,7 +247,7 @@ export function GitHubPanel() {
             transition={{ duration: 0.3 }}
           >
             {/* LeetCode Stats Header */}
-            <div className="mb-6 flex items-center justify-between">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
               <h3 className="flex items-center gap-2 font-mono text-sm uppercase tracking-[0.2em] text-white">
                 <Activity size={16} />
                 Live LeetCode Stats
@@ -274,11 +274,12 @@ export function GitHubPanel() {
                   <p className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-white">
                     LeetCode Stats Card
                   </p>
-                  <div className="flex items-center justify-center rounded-lg bg-[#282828] p-6">
+                  <div className="overflow-x-auto rounded-lg bg-[#282828] p-4">
                     <img
                       src={`https://leetcard.jacoblin.cool/${profile.leetcode}?theme=dark&font=Ubuntu&ext=heatmap`}
                       alt={`${profile.name}'s LeetCode Stats`}
-                      className="w-full max-w-2xl"
+                      className="w-full"
+                      style={{ minWidth: "280px" }}
                       loading="lazy"
                     />
                   </div>
