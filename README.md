@@ -16,26 +16,6 @@
 
 ---
 
-## Overview
-
-This isn't a "developer portfolio template" — it's built around one idea:
-**every panel on the page is a HUD readout.** Glassmorphic surfaces, thin
-neon corner brackets, an animated cyber grid, and a short boot sequence
-frame the whole site like an operating system rather than a scrolling résumé.
-
-No copied assets, characters, or UI kits — the visual language (corner
-brackets, scanlines, glow) is original and reused consistently across every
-section so it never feels bolted-on.
-
-## Features
-
-**Interface**
-- Boot sequence on first load (skippable, plays once per session)
-- Fixed HUD nav bar with live scroll-spy waypoints
-- Signature "targeting-reticle" glass panel used for every card on the site
-- Animated cyber-grid + lightweight canvas particle field in the hero
-- Fully original color system: void-black background, cyan/green accents
-
 **Content sections**
 - **Home** — animated hero with a rotating role readout and mission-status strip
 - **About** — profile broken into HUD info-cards instead of a paragraph
@@ -134,7 +114,7 @@ inspiration — please don't republish it as your own identical portfolio and fo
 ## Contact
 
 **Abhishek Tiwari**
-[GitHub](https://github.com/Abhishek09821) 
+[LinkedIn]([https://github.com/Abhishek09821](https://www.linkedin.com/in/abhishek-tiwari-3a3594300/)) 
 
 ---
 
