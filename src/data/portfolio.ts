@@ -7,7 +7,7 @@
 export const profile = {
   name: "Abhishek Tiwari",
   callsign: "Abhee",
-  roles: ["Software Engineer", "AI Developer", "Python Backend Developer"],
+  roles: ["Software Engineer", "Full Stack Developer", "Python Backend Developer"],
   tagline: "Building intelligent software that solves real-world problems.",
   location: "Gwalior, Madhya Pradesh, India",
   education: "B.Tech, Computer Science & Engineering — Amity University Madhya Pradesh",
@@ -53,7 +53,7 @@ export const aboutCards = [
   {
     id: "focus",
     label: "Focus",
-    value: "AI Applications & Full-Stack Systems",
+    value: "Ai Web Applications & Full-Stack Systems",
     detail: "Python backends, agentic AI, and interfaces that feel finished.",
   },
   {
@@ -157,23 +157,7 @@ export const projects = [
     demo: null,
     status: "Active development",
   },
-  {
-    id: "canary-ai-files",
-    codename: "MISSION // CANARY",
-    name: "Canary AI Files",
-    tagline: "Deception-based file monitoring & intrusion alerting",
-    description:
-      "A Python/Flask honeypot system that watches decoy files, captures webcam snapshots on tripwire events, and pushes alerts over Telegram, email, and WhatsApp — with encrypted storage and IP geolocation.",
-    tech: ["Python", "Flask", "Watchdog", "Twilio", "Fernet Encryption"],
-    features: [
-      "Real-time file-system tripwires with webcam capture on trigger",
-      "Multi-channel alerting: Telegram, email, and WhatsApp",
-      "Encrypted event storage with IP geolocation lookups",
-    ],
-    github: "https://github.com/Abhishek09821/CANARY-AI-FILES",
-    demo: null,
-    status: "Complete",
-  },
+
   {
     id: "vdown",
     codename: "MISSION // VDOWN",
@@ -285,16 +269,16 @@ export const achievements = [
     certificateUrl: "https://drive.google.com/file/d/1kLxt3ezmECvd1D72rAOlJqNY41HOTWpt/view",
   },
   {
-    id: "leetcode-100-days",
-    title: "LeetCode 100 Days Badge 2026",
-    description: "Achieved 100+ consecutive days of solving problems on LeetCode in 2026.",
+    id: "leetcode-200-days",
+    title: "LeetCode 200 Days Badge 2026",
+    description: "Achieved 200+ consecutive days of solving problems on LeetCode in 2026.",
     date: "2026",
     category: "Achievement",
     certificateUrl: "/certificates/leetcode-100-days.png",
   },
   {
-    id: "ai-builder",
-    title: "AI Builder",
+    id: "AI Application-builder",
+    title: "AI Application Builder",
     description: "Shipped multiple production AI systems — agentic assistants and an AI financial advisor.",
     category: "Skill",
   },
