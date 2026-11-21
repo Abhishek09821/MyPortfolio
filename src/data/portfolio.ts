@@ -110,15 +110,16 @@ export const careerLevels = [
 
 export const skillTree = [
   { name: "Python", level: 5, xp: 92, category: "Backend" },
-  { name: "C++", level: 3, xp: 58, category: "Backend" },
+  { name: "C++", level: 4, xp: 75, category: "Backend" },
   { name: "React", level: 4, xp: 80, category: "Frontend" },
-  { name: "TypeScript", level: 3, xp: 62, category: "Frontend" },
+  { name: "JavaScript", level: 5, xp: 90, category: "Frontend" },
+  { name: "Software Engineering", level: 4, xp: 78, category: "Backend" },
   { name: "Full Stack Developer", level: 4, xp: 75, category: "Backend" },
   { name: "Flask", level: 4, xp: 78, category: "Backend" },
-  { name: "PostgreSQL", level: 3, xp: 60, category: "Data" },
-  { name: "MySQL", level: 4, xp: 72, category: "Data" },
+  { name: "PostgreSQL", level: 4, xp: 75, category: "Data" },
+  { name: "MySQL", level: 3, xp: 60, category: "Data" },
   { name: "AI / LLM Integration", level: 5, xp: 90, category: "AI" },
-  { name: "Docker", level: 2, xp: 45, category: "Infra" },
+  { name: "Docker", level: 4, xp: 75, category: "Infra" },
   { name: "Git & GitHub", level: 4, xp: 82, category: "Tooling" },
 ] as const;
 
@@ -153,8 +154,8 @@ export const projects = [
       "Multiple difficulty selection",
       "Customizable gameplay experience",
     ],
-    github: "https://github.com/Abhishek09821/Arena",
-    demo: null,
+    github: "https://github.com/Abhishek09821/arena-sports-quiz-game",
+    demo: "https://arena-sports-quiz-mvp.vercel.app/",
     status: "Active development",
   },
 
@@ -172,7 +173,7 @@ export const projects = [
       "Streamlined document workflow",
     ],
     github: "https://github.com/Abhishek09821/anything-convertable",
-    demo: null,
+    demo: "https://anything-convertable-web.vercel.app/",
     status: "Active development",
   },
   {
@@ -189,7 +190,7 @@ export const projects = [
       "Clean and professional templates",
     ],
     github: "https://github.com/Abhishek09821/ur-CV",
-    demo: null,
+    demo: "https://ur-cv.netlify.app/",
     status: "Active development",
   },
 ] as const;
